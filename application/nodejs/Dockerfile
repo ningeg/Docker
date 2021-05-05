@@ -1,10 +1,11 @@
-# BASE IMAGE
 FROM node:alpine
-WORKDIR /usr/app
-# ADD ENTRYPOINT
 
+WORKDIR /usr/app
+
+# Install some dependencies
 COPY ./package.json ./
-RUN npm install -g npm@7.10.0
+RUN npm install
 COPY ./ ./
 
+# Default command
 CMD ["npm", "start"]
